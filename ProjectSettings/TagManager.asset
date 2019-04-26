@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Boss
+  - Pallet
+  - Enemy_blue
+  - Player_blue
+  - Player_red
+  - Enemy_red
+  - Destructable_red
+  - Destructable_blue
+  - Eyes
+  - Boss2
+  - Boss2_vulnerable
+  - Terrain
+  - Boss2_BombSpawn
+  - Boss3
+  - PlayerHitbox
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - Player
+  - Enemy
+  - TriggerZones
+  - Projectiles
+  - Checkpoints
+  - Collectables
+  - Bounds
+  - Projectiles_Enemy
+  - Boss
+  - Boss_Special_Projectile
+  - DashBullet
+  - Fire_points
+  - Spawn_points
+  - Doodads
+  - Buttons
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Bounds
+    uniqueID: 1771996319
+    locked: 0
