@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4506635604696556}
   - component: {fileID: 212883423858287840}
   - component: {fileID: 95201695651246196}
+  - component: {fileID: 114113248286471576}
   m_Layer: 0
   m_Name: Rune
   m_TagString: Untagged
@@ -58,6 +59,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114113248286471576
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1905132715532926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9162572f41523b4480861f2643eb672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212883423858287840
 SpriteRenderer:
   m_ObjectHideFlags: 1
