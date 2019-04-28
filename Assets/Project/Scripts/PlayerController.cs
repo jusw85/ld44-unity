@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
                 break;
         }
 
-        animator.SetTrigger("playerCast");
+        animator.SetTrigger("cast");
     }
 
     public void SpawnSlaves(int numSlaves)
