@@ -719,6 +719,72 @@ MonoBehaviour:
     cooldown: 5.5
     skillCost: 4
   player: {fileID: 1777106730}
+--- !u!1001 &364081965
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1777106729}
+    m_Modifications:
+    - target: {fileID: 4780844449619222, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.069999695
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780844449619222, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.53000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780844449619222, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780844449619222, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780844449619222, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780844449619222, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780844449619222, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4780844449619222, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954971418727182, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
+      propertyPath: m_Name
+      value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 212860950436051466, guid: e5eb281f9d3763143b968bc94559ee68,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7066bc1a77dbc244ab4197eba34e2497,
+        type: 3}
+    - target: {fileID: 95285132487128488, guid: e5eb281f9d3763143b968bc94559ee68,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: efe9281a0d06f3240b7fc6553d15e946, type: 2}
+    - target: {fileID: 1954971418727182, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &364081966 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4780844449619222, guid: e5eb281f9d3763143b968bc94559ee68,
+    type: 2}
+  m_PrefabInternal: {fileID: 364081965}
 --- !u!1 &418288582
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,7 +1017,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &777517460
 GameObject:
@@ -1081,10 +1147,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4780844449619222, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114328916466736872, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &818655226
@@ -1613,7 +1678,7 @@ Transform:
   - {fileID: 1907100346}
   - {fileID: 818655227}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1300616027
 GameObject:
@@ -1887,7 +1952,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300004, guid: 8769f22192b9de84b9b4f9341998412b, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 8769f22192b9de84b9b4f9341998412b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1999,7 +2064,7 @@ Transform:
   m_Children:
   - {fileID: 1300616028}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1645872000
 SpriteRenderer:
@@ -2147,6 +2212,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1197373203}
+  - {fileID: 364081966}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2166,6 +2232,7 @@ MonoBehaviour:
   spawnArea: {fileID: 1227484637}
   skillBar: {fileID: 237908384}
   fireball: {fileID: 1954971418727182, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
+  enemy: {fileID: 1645871998}
 --- !u!114 &1777106731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2373,7 +2440,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300002, guid: 8769f22192b9de84b9b4f9341998412b, type: 3}
+  m_Sprite: {fileID: 21300008, guid: 8769f22192b9de84b9b4f9341998412b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

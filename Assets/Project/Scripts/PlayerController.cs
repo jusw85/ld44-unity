@@ -17,7 +17,9 @@ public class PlayerController : MonoBehaviour
     private ObjectPooler objectPooler;
     private Bounds[] spawnBounds;
     private Queue<GameObject> slaveObjs;
+
     private Transform muzzle;
+    private GameObject shield;
 
     private void Start()
     {
@@ -26,7 +28,8 @@ public class PlayerController : MonoBehaviour
         objectPooler.CreatePool(slave, Mathf.Max(200, initialSlaves));
         slaveObjs = new Queue<GameObject>();
 
-        muzzle = transform.Find("Muzzle").transform;
+        muzzle = transform.Find("Muzzle");
+        shield = transform.Find("Shield").gameObject;
 
         BoxCollider2D[] colliders = spawnArea.GetComponentsInChildren<BoxCollider2D>();
         spawnBounds = new Bounds[colliders.Length];
@@ -44,29 +47,43 @@ public class PlayerController : MonoBehaviour
         switch (key)
         {
             case "Q":
-                var obj = Instantiate(fireball, muzzle.position, Quaternion.identity);
-                obj.SetActive(true);
-                DOTween.To(() => obj.transform.position,
-                        x => obj.transform.position = x,
-                        enemy.transform.position, 1f)
-                    .SetEase(Ease.InQuad)
-                    .OnComplete(() =>
-                    {
-                        var anim = obj.GetComponent<Animator>();
-                        anim.SetTrigger("boom");
-                    });
+                SpawnFireball(0);
                 break;
             case "W":
+                SpawnFireball(1);
                 break;
             case "E":
+                SpawnShield();
                 break;
             case "R":
+                SpawnFireball(2);
                 break;
             default:
                 break;
         }
 
         animator.SetTrigger("cast");
+    }
+
+    private void SpawnShield()
+    {
+        shield.SetActive(true);
+        shield.GetComponent<Animator>().SetTrigger("activate");
+    }
+
+    private void SpawnFireball(int fireballType)
+    {
+        var obj = Instantiate(fireball, muzzle.position, Quaternion.identity);
+        obj.SetActive(true);
+        var anim = obj.GetComponent<Animator>();
+        anim.SetLayerWeight(0, 0);
+        anim.SetLayerWeight(fireballType, 1);
+
+        DOTween.To(() => obj.transform.position,
+                x => obj.transform.position = x,
+                enemy.transform.position, 1f)
+            .SetEase(Ease.InQuad)
+            .OnComplete(() => { anim.SetTrigger("boom"); });
     }
 
     public void SpawnSlaves(int numSlaves)
