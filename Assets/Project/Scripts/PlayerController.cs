@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,11 +10,14 @@ public class PlayerController : MonoBehaviour
     public int initialSlaves;
     public GameObject spawnArea;
     public SkillBarController skillBar;
+    public GameObject fireball;
+    public GameObject enemy;
 
     private Animator animator;
     private ObjectPooler objectPooler;
     private Bounds[] spawnBounds;
     private Queue<GameObject> slaveObjs;
+    private Transform muzzle;
 
     private void Start()
     {
@@ -21,6 +25,8 @@ public class PlayerController : MonoBehaviour
         objectPooler = ObjectPooler.instance;
         objectPooler.CreatePool(slave, Mathf.Max(200, initialSlaves));
         slaveObjs = new Queue<GameObject>();
+
+        muzzle = transform.Find("Muzzle").transform;
 
         BoxCollider2D[] colliders = spawnArea.GetComponentsInChildren<BoxCollider2D>();
         spawnBounds = new Bounds[colliders.Length];
@@ -38,6 +44,17 @@ public class PlayerController : MonoBehaviour
         switch (key)
         {
             case "Q":
+                var obj = Instantiate(fireball, muzzle.position, Quaternion.identity);
+                obj.SetActive(true);
+                DOTween.To(() => obj.transform.position,
+                        x => obj.transform.position = x,
+                        enemy.transform.position, 1f)
+                    .SetEase(Ease.InQuad)
+                    .OnComplete(() =>
+                    {
+                        var anim = obj.GetComponent<Animator>();
+                        anim.SetTrigger("boom");
+                    });
                 break;
             case "W":
                 break;
