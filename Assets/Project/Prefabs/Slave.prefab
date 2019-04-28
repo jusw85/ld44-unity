@@ -37,7 +37,6 @@ GameObject:
   - component: {fileID: 4744843586729460}
   - component: {fileID: 212259074169343974}
   - component: {fileID: 95313094506055160}
-  - component: {fileID: 114222589209141742}
   - component: {fileID: 114646930004433830}
   m_Layer: 0
   m_Name: Slave
@@ -90,17 +89,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114222589209141742
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1870032642800322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8429cf808282e44381aae0e580091d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114646930004433830
 MonoBehaviour:
   m_ObjectHideFlags: 1

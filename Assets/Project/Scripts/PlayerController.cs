@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
             spawnBounds[i] = colliders[i].bounds;
         }
 
-        SpawnSlaves(15);
+        SpawnSlaves(numSlaves);
     }
 
     public void HandleSkill(String key)
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
                 break;
         }
 
-        animator.Play("PlayerCast");
+        animator.SetTrigger("playerCast");
     }
 
     public void SpawnSlaves(int numSlaves)
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < n; i++)
         {
             GameObject obj = slaveObjs.Dequeue();
-            obj.GetComponent<Animator>().Play("SlaveSac");
+            obj.GetComponent<Animator>().SetTrigger("slaveSac");
         }
     }
 

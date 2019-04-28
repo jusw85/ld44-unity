@@ -304,7 +304,7 @@ SpriteRenderer:
   m_SortingLayerID: 1771996319
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8179467b6fd97f046ac3c8a8a4fb40b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ceb0ead412cce92479114015d8165d0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -612,6 +612,10 @@ Prefab:
     - target: {fileID: 4744843586729460, guid: ca52c7a171512004484579e119debdac, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870032642800322, guid: ca52c7a171512004484579e119debdac, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca52c7a171512004484579e119debdac, type: 2}
@@ -962,7 +966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &777517461
 Transform:
   m_ObjectHideFlags: 0
@@ -1883,7 +1887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slave: {fileID: 1870032642800322, guid: ca52c7a171512004484579e119debdac, type: 2}
-  numSlaves: 20
+  numSlaves: 3
   spawnArea: {fileID: 1227484637}
 --- !u!114 &1777106731
 MonoBehaviour:
