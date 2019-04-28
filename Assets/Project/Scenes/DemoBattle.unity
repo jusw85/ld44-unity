@@ -705,15 +705,19 @@ MonoBehaviour:
   - key: Q
     cooldownImage: {fileID: 1593069390}
     cooldown: 1.5
+    skillCost: 1
   - key: W
     cooldownImage: {fileID: 3558283}
     cooldown: 2.5
+    skillCost: 2
   - key: E
     cooldownImage: {fileID: 1325906008}
     cooldown: 4
+    skillCost: 3
   - key: R
     cooldownImage: {fileID: 907307541}
     cooldown: 5.5
+    skillCost: 4
   player: {fileID: 1777106730}
 --- !u!1 &418288582
 GameObject:
@@ -2057,8 +2061,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slave: {fileID: 1870032642800322, guid: ca52c7a171512004484579e119debdac, type: 2}
-  numSlaves: 20
+  initialSlaves: 20
   spawnArea: {fileID: 1227484637}
+  skillBar: {fileID: 237908384}
 --- !u!114 &1777106731
 MonoBehaviour:
   m_ObjectHideFlags: 0

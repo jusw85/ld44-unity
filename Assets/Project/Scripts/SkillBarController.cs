@@ -10,15 +10,13 @@ public class SkillBarController : MonoBehaviour
         public String key;
         public Image cooldownImage;
         public float cooldown;
+        public int skillCost;
 
         [NonSerialized]
         public float currentCooldown;
 
         [NonSerialized]
         public KeyCode keyCode;
-
-        [NonSerialized]
-        public bool isCoolingDown;
     }
 
     public float globalCooldown;
@@ -46,16 +44,27 @@ public class SkillBarController : MonoBehaviour
         bool isButtonPressed = false;
         foreach (SkillButton s in skills)
         {
-            HandleSkill(s, ref isButtonPressed);
+            if (Input.GetKeyDown(s.keyCode) && s.cooldownImage.fillAmount <= 0 && player.GetNumSlaves() >= s.skillCost)
+            {
+                s.cooldownImage.fillAmount = 1.0f;
+                s.currentCooldown = s.cooldown;
+                isButtonPressed = true;
+                player.HandleSkill(s.key, s.skillCost);
+            }
         }
 
         if (isButtonPressed)
         {
             foreach (SkillButton s in skills)
             {
-                if (!s.isCoolingDown)
+                if (player.GetNumSlaves() < s.skillCost)
                 {
-                    s.isCoolingDown = true;
+                    s.cooldownImage.fillAmount = 1.0f;
+                    continue;
+                }
+
+                if (s.cooldownImage.fillAmount <= 0)
+                {
                     s.cooldownImage.fillAmount = 1.0f;
                     s.currentCooldown = globalCooldown;
                 }
@@ -67,28 +76,14 @@ public class SkillBarController : MonoBehaviour
                 }
             }
         }
-    }
 
-    private void HandleSkill(SkillButton s, ref bool isButtonPressed)
-    {
-        if (Input.GetKeyDown(s.keyCode) && !s.isCoolingDown)
+        foreach (SkillButton s in skills)
         {
-            s.isCoolingDown = true;
-            s.cooldownImage.fillAmount = 1.0f;
-            s.currentCooldown = s.cooldown;
-            isButtonPressed = true;
-            player.HandleSkill(s.key);
-        }
-
-        if (s.isCoolingDown)
-        {
-            s.cooldownImage.fillAmount -= Time.deltaTime / s.currentCooldown;
-        }
-
-        if (s.cooldownImage.fillAmount <= 0)
-        {
-            s.cooldownImage.fillAmount = 0;
-            s.isCoolingDown = false;
+            if (s.cooldownImage.fillAmount > 0 && player.GetNumSlaves() >= s.skillCost)
+            {
+                s.cooldownImage.fillAmount -= Time.deltaTime / s.currentCooldown;
+                s.cooldownImage.fillAmount = Mathf.Clamp(s.cooldownImage.fillAmount, 0f, 1f);
+            }
         }
     }
 }

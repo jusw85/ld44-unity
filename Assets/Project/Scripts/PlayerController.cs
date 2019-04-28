@@ -6,8 +6,9 @@ using Random = UnityEngine.Random;
 public class PlayerController : MonoBehaviour
 {
     public GameObject slave;
-    public int numSlaves;
+    public int initialSlaves;
     public GameObject spawnArea;
+    public SkillBarController skillBar;
 
     private Animator animator;
     private ObjectPooler objectPooler;
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         objectPooler = ObjectPooler.instance;
-        objectPooler.CreatePool(slave, Mathf.Max(200, numSlaves));
+        objectPooler.CreatePool(slave, Mathf.Max(200, initialSlaves));
         slaveObjs = new Queue<GameObject>();
 
         BoxCollider2D[] colliders = spawnArea.GetComponentsInChildren<BoxCollider2D>();
@@ -28,24 +29,21 @@ public class PlayerController : MonoBehaviour
             spawnBounds[i] = colliders[i].bounds;
         }
 
-        SpawnSlaves(numSlaves);
+        SpawnSlaves(initialSlaves);
     }
 
-    public void HandleSkill(String key)
+    public void HandleSkill(String key, int cost)
     {
+        SacSlaves(cost);
         switch (key)
         {
             case "Q":
-                SacSlaves(1);
                 break;
             case "W":
-                SacSlaves(2);
                 break;
             case "E":
-                SacSlaves(3);
                 break;
             case "R":
-                SacSlaves(4);
                 break;
             default:
                 break;
@@ -85,6 +83,11 @@ public class PlayerController : MonoBehaviour
             GameObject obj = slaveObjs.Dequeue();
             obj.GetComponent<Animator>().SetTrigger("slaveSac");
         }
+    }
+
+    public int GetNumSlaves()
+    {
+        return slaveObjs.Count;
     }
 
     private static Vector3 RandomPointInBounds(Bounds bounds)
