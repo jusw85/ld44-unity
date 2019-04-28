@@ -617,6 +617,17 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 212259074169343974, guid: ca52c7a171512004484579e119debdac,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b3c375a68477a9c4b9df7fe4601c1ac9,
+        type: 3}
+    - target: {fileID: 212259074169343974, guid: ca52c7a171512004484579e119debdac,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca52c7a171512004484579e119debdac, type: 2}
   m_IsPrefabParent: 0
@@ -1887,7 +1898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slave: {fileID: 1870032642800322, guid: ca52c7a171512004484579e119debdac, type: 2}
-  numSlaves: 3
+  numSlaves: 20
   spawnArea: {fileID: 1227484637}
 --- !u!114 &1777106731
 MonoBehaviour:

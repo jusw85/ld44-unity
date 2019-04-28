@@ -65,6 +65,14 @@ public class PlayerController : MonoBehaviour
             xy.z = 0;
             obj.transform.position = xy;
             obj.transform.rotation = Quaternion.identity;
+
+            Animator anim = obj.GetComponent<Animator>();
+            for (int j = 0; j < anim.layerCount; j++)
+            {
+                anim.SetLayerWeight(j, 0f);
+            }
+
+            anim.SetLayerWeight(Random.Range(0, anim.layerCount), 1f);
             slaveObjs.Enqueue(obj);
         }
     }
