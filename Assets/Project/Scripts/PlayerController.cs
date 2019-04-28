@@ -9,12 +9,14 @@ public class PlayerController : MonoBehaviour
     public int numSlaves;
     public GameObject spawnArea;
 
+    private Animator animator;
     private ObjectPooler objectPooler;
     private Bounds[] spawnBounds;
     private Queue<GameObject> slaveObjs;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         objectPooler = ObjectPooler.instance;
         objectPooler.CreatePool(slave, Mathf.Max(200, numSlaves));
         slaveObjs = new Queue<GameObject>();
@@ -48,6 +50,8 @@ public class PlayerController : MonoBehaviour
             default:
                 break;
         }
+
+        animator.Play("PlayerCast");
     }
 
     public void SpawnSlaves(int numSlaves)
