@@ -3,23 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Enemy
-  - Boss
-  - Pallet
-  - Enemy_blue
-  - Player_blue
-  - Player_red
-  - Enemy_red
-  - Destructable_red
-  - Destructable_blue
-  - Eyes
-  - Boss2
-  - Boss2_vulnerable
-  - Terrain
-  - Boss2_BombSpawn
-  - Boss3
-  - PlayerHitbox
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -29,22 +13,22 @@ TagManager:
   - UI
   - 
   - 
-  - Ground
-  - Player
-  - Enemy
-  - TriggerZones
-  - Projectiles
-  - Checkpoints
-  - Collectables
-  - Bounds
-  - Projectiles_Enemy
-  - Boss
-  - Boss_Special_Projectile
-  - DashBullet
-  - Fire_points
-  - Spawn_points
-  - Doodads
-  - Buttons
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -54,9 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1771996319
+    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Bounds
-    uniqueID: 1771996319
     locked: 0
