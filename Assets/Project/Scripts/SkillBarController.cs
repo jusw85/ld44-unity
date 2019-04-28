@@ -23,6 +23,7 @@ public class SkillBarController : MonoBehaviour
 
     public float globalCooldown;
     public SkillButton[] skills;
+    public PlayerController player;
 
     private void OnValidate()
     {
@@ -76,6 +77,7 @@ public class SkillBarController : MonoBehaviour
             s.cooldownImage.fillAmount = 1.0f;
             s.currentCooldown = s.cooldown;
             isButtonPressed = true;
+            player.HandleSkill(s.key);
         }
 
         if (s.isCoolingDown)
