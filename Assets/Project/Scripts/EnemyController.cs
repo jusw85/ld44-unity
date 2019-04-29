@@ -106,7 +106,7 @@ public class EnemyController : MonoBehaviour, IHasHP
 
         DOTween.To(() => obj.transform.position,
                 x => obj.transform.position = x,
-                player.transform.position, 1f)
+                player.GetFireTarget(), 1f)
             .SetEase(Ease.InQuad)
             .OnComplete(() =>
             {

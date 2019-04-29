@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour, IHasHP
     private Transform muzzle;
     private GameObject shield;
 
+    private int shieldHp;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -52,7 +54,11 @@ public class PlayerController : MonoBehaviour, IHasHP
                 SpawnFireball(2, () => { enemy.TakeDamage(20); });
                 break;
             case "W":
-                SpawnFireball(1, () => { enemy.TakeDamage(1); enemy.Freeze();});
+                SpawnFireball(1, () =>
+                {
+                    enemy.TakeDamage(1);
+                    enemy.Freeze();
+                });
                 break;
             case "E":
                 SpawnShield();
@@ -69,8 +75,14 @@ public class PlayerController : MonoBehaviour, IHasHP
 
     private void SpawnShield()
     {
+        shieldHp = 2;
         shield.SetActive(true);
         shield.GetComponent<Animator>().SetTrigger("activate");
+    }
+
+    public bool isShielded()
+    {
+        return shieldHp > 0;
     }
 
     private void SpawnFireball(int fireballType, Action postComplete = null)
@@ -143,6 +155,17 @@ public class PlayerController : MonoBehaviour, IHasHP
 
     public void TakeDamage(int dmg)
     {
+        if (shieldHp > 0)
+        {
+            shieldHp--;
+            if (shieldHp <= 0)
+            {
+                shield.SetActive(false);
+            }
+
+            return;
+        }
+
         hp -= dmg;
         if (hp <= 0)
         {
@@ -158,5 +181,17 @@ public class PlayerController : MonoBehaviour, IHasHP
     public void FreezeInput(bool isFrozen)
     {
         skillBar.isInputFrozen = isFrozen;
+    }
+
+    public Vector3 GetFireTarget()
+    {
+        if (isShielded())
+        {
+            return shield.transform.position;
+        }
+        else
+        {
+            return transform.position;
+        }
     }
 }
