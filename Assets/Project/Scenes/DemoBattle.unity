@@ -793,7 +793,7 @@ MonoBehaviour:
   - key: Q
     cooldownImage: {fileID: 1593069390}
     cooldown: 1.5
-    skillCost: 1
+    skillCost: 0
   - key: W
     cooldownImage: {fileID: 3558283}
     cooldown: 2.5
@@ -1004,7 +1004,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300006, guid: 8769f22192b9de84b9b4f9341998412b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8769f22192b9de84b9b4f9341998412b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1312,6 +1312,10 @@ Prefab:
     - target: {fileID: 4780844449619222, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954971418727182, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
@@ -1691,7 +1695,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8769f22192b9de84b9b4f9341998412b, type: 3}
+  m_Sprite: {fileID: 21300006, guid: 8769f22192b9de84b9b4f9341998412b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2608,7 +2612,7 @@ MonoBehaviour:
   initialSlaves: 20
   spawnArea: {fileID: 1065324501}
   fireball: {fileID: 0}
-  enemy: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &1777106727
 GameObject:
   m_ObjectHideFlags: 0

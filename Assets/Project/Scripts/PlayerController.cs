@@ -48,16 +48,16 @@ public class PlayerController : MonoBehaviour, IHasHP
         switch (key)
         {
             case "Q":
-                SpawnFireball(0, () => { enemy.TakeDamage(1); });
+                SpawnFireball(2, () => { enemy.TakeDamage(2); });
                 break;
             case "W":
-                SpawnFireball(1, () => { enemy.TakeDamage(2); });
+                SpawnFireball(1, () => { enemy.TakeDamage(1); });
                 break;
             case "E":
                 SpawnShield();
                 break;
             case "R":
-                SpawnFireball(2, () => { enemy.TakeDamage(3); });
+                SpawnFireball(0, () => { enemy.TakeDamage(5); });
                 break;
             default:
                 break;
