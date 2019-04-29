@@ -49,7 +49,7 @@ public class EnemyController : MonoBehaviour, IHasHP
         while (true)
         {
             yield return new WaitForSeconds(3f);
-            SpawnFireball(2, () => { player.TakeDamage(2); });
+            SpawnFireball(2, () => { player.TakeDamage(5); });
             SacSlaves(2);
             animator.SetTrigger("cast");
         }

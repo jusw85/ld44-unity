@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour, IHasHP
@@ -143,8 +144,12 @@ public class PlayerController : MonoBehaviour, IHasHP
     public void TakeDamage(int dmg)
     {
         hp -= dmg;
+        if (hp <= 0)
+        {
+            SceneManager.LoadScene(sceneName: "LoseScreen");
+        }
     }
-    
+
     public int GetHP()
     {
         return hp;
