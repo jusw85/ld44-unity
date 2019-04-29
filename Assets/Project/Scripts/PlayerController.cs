@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour, IHasHP
                 SpawnFireball(2, () => { enemy.TakeDamage(20); });
                 break;
             case "W":
-                SpawnFireball(1, () => { enemy.TakeDamage(1); });
+                SpawnFireball(1, () => { enemy.TakeDamage(1); enemy.Freeze();});
                 break;
             case "E":
                 SpawnShield();

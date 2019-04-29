@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Fungus;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -26,6 +27,7 @@ public class EnemyController : MonoBehaviour, IHasHP
     private GameObject shield;
     private SpriteRenderer spriteRenderer;
     private bool isDead;
+    private bool isFrozen;
 
     private void Start()
     {
@@ -56,6 +58,7 @@ public class EnemyController : MonoBehaviour, IHasHP
         {
             yield return new WaitForSeconds(3f);
             if (isDead) break;
+            if (isFrozen) continue;
             SpawnFireball(2, () => { player.TakeDamage(1); });
             SacSlaves(2);
             animator.SetTrigger("cast");
@@ -202,4 +205,19 @@ public class EnemyController : MonoBehaviour, IHasHP
     {
         return hp;
     }
+
+    public void Freeze()
+    {
+        isFrozen = true;
+        animator.speed = 0f;
+        StartCoroutine(FreezeCooldown());
+    }
+
+    private IEnumerator FreezeCooldown()
+    {
+        yield return new WaitForSeconds(5);
+        animator.speed = 1f;
+        isFrozen = false;
+    }
+
 }
