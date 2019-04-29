@@ -198,6 +198,7 @@ public class EnemyController : MonoBehaviour, IHasHP
         player.FreezeInput(false);
         hp = 20;
         SpawnSlaves(20);
+        isDead = false;
         StartCoroutine(Fire());
     }
 
