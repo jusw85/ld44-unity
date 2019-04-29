@@ -5,27 +5,30 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Project/Scenes/Title.unity
-    guid: 54884a811ca28324ca1c8bbc2b972c30
-  - enabled: 1
-    path: Assets/Project/Scenes/Level_1.unity
-    guid: af1ecd41793115640a5ec49c74cde4b1
-  - enabled: 1
-    path: Assets/Project/Scenes/Level_2.unity
-    guid: a8850b8c3d1c1394e94686686c90f91c
-  - enabled: 1
-    path: Assets/Project/Scenes/Level_3.unity
-    guid: 1d5f92d56cdd20d4d81789bc24f78f37
-  - enabled: 1
-    path: Assets/Project/Scenes/Level_4.unity
-    guid: ff8df36c579a1b648b497d76ad11e5bd
-  - enabled: 1
-    path: Assets/Project/Scenes/Ending.unity
-    guid: 26639601cbe79824881396ae7aecbf82
-  - enabled: 1
-    path: Assets/Project/Scenes/Ending_lab.unity
-    guid: e46d1e423d1375047bfd2d75d09ebfdd
-  - enabled: 1
-    path: Assets/Project/Scenes/Ending_Surface.unity
-    guid: 8e4786006f2b96f4788c51c6de667638
+    guid: 453bf3cd2d2837d47ba050d6fa0479db
