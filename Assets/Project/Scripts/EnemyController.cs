@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Fungus;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class EnemyController : MonoBehaviour, IHasHP
@@ -190,6 +191,11 @@ public class EnemyController : MonoBehaviour, IHasHP
     private IEnumerator NextStage()
     {
         yield return new WaitForSeconds(3);
+        if (currentBg >= 2)
+        {
+            SceneManager.LoadScene("WinScreen");
+            yield break;
+        }
         animator.SetLayerWeight(currentBg, 0f);
         currentBg = (currentBg + 1) % bgs.Length;
         animator.SetLayerWeight(currentBg, 1f);
