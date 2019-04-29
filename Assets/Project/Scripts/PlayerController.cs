@@ -4,7 +4,7 @@ using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IHasHP
 {
     public int hp;
     public GameObject slave;
@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public GameObject spawnArea;
     public SkillBarController skillBar;
     public GameObject fireball;
-    public GameObject enemy;
+    public EnemyController enemy;
 
     private Animator animator;
     private ObjectPooler objectPooler;
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         switch (key)
         {
             case "Q":
-                SpawnFireball(0);
+                SpawnFireball(0, () => { enemy.TakeDamage(1); });
                 break;
             case "W":
                 SpawnFireball(1);
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         shield.GetComponent<Animator>().SetTrigger("activate");
     }
 
-    private void SpawnFireball(int fireballType)
+    private void SpawnFireball(int fireballType, Action postComplete = null)
     {
         var obj = Instantiate(fireball, muzzle.position, Quaternion.identity);
         obj.SetActive(true);
@@ -84,7 +84,11 @@ public class PlayerController : MonoBehaviour
                 x => obj.transform.position = x,
                 enemy.transform.position, 1f)
             .SetEase(Ease.InQuad)
-            .OnComplete(() => { anim.SetTrigger("boom"); });
+            .OnComplete(() =>
+            {
+                anim.SetTrigger("boom");
+                if (postComplete != null) postComplete();
+            });
     }
 
     public void SpawnSlaves(int numSlaves)
@@ -132,5 +136,10 @@ public class PlayerController : MonoBehaviour
             Random.Range(bounds.min.y, bounds.max.y),
             Random.Range(bounds.min.z, bounds.max.z)
         );
+    }
+
+    public int GetHP()
+    {
+        return hp;
     }
 }

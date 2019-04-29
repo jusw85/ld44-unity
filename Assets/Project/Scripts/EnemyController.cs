@@ -1,8 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, IHasHP
 {
     public int hp;
+
+    public void TakeDamage(int dmg)
+    {
+        hp -= dmg;
+    }
+
+    public int GetHP()
+    {
+        return hp;
+    }
 }
