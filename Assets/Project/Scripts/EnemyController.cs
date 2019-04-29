@@ -13,6 +13,9 @@ public class EnemyController : MonoBehaviour, IHasHP
     public GameObject spawnArea;
     public GameObject fireball;
     public PlayerController player;
+    public SpriteRenderer bg;
+    public Sprite[] bgs;
+    private int currentBg = 0;
 
     private Animator animator;
     private ObjectPooler objectPooler;
@@ -21,9 +24,12 @@ public class EnemyController : MonoBehaviour, IHasHP
 
     private Transform muzzle;
     private GameObject shield;
+    private SpriteRenderer spriteRenderer;
+    private bool isDead;
 
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         objectPooler = ObjectPooler.instance;
         objectPooler.CreatePool(slave, Mathf.Max(200, initialSlaves));
@@ -44,12 +50,13 @@ public class EnemyController : MonoBehaviour, IHasHP
         StartCoroutine(Fire());
     }
 
-    IEnumerator Fire()
+    private IEnumerator Fire()
     {
         while (true)
         {
             yield return new WaitForSeconds(3f);
-            SpawnFireball(2, () => { player.TakeDamage(5); });
+            if (isDead) break;
+            SpawnFireball(2, () => { player.TakeDamage(1); });
             SacSlaves(2);
             animator.SetTrigger("cast");
         }
@@ -156,6 +163,39 @@ public class EnemyController : MonoBehaviour, IHasHP
     public void TakeDamage(int dmg)
     {
         hp -= dmg;
+        hp = Mathf.Clamp(hp, 0, hp);
+        if (hp <= 0)
+        {
+            DoMeDeath();
+        }
+    }
+
+    private void DoMeDeath()
+    {
+        isDead = true;
+        while (slaveObjs.Count > 0)
+        {
+            GameObject obj = slaveObjs.Dequeue();
+            obj.GetComponent<Animator>().SetTrigger("slaveDeath");
+        }
+
+        player.FreezeInput(true);
+        spriteRenderer.enabled = false;
+        StartCoroutine(NextStage());
+    }
+
+    private IEnumerator NextStage()
+    {
+        yield return new WaitForSeconds(3);
+        animator.SetLayerWeight(currentBg, 0f);
+        currentBg = (currentBg + 1) % bgs.Length;
+        animator.SetLayerWeight(currentBg, 1f);
+        spriteRenderer.enabled = true;
+        bg.sprite = bgs[currentBg];
+        player.FreezeInput(false);
+        hp = 20;
+        SpawnSlaves(20);
+        StartCoroutine(Fire());
     }
 
     public int GetHP()

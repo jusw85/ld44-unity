@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour, IHasHP
         switch (key)
         {
             case "Q":
-                SpawnFireball(2, () => { enemy.TakeDamage(2); });
+                SpawnFireball(2, () => { enemy.TakeDamage(20); });
                 break;
             case "W":
                 SpawnFireball(1, () => { enemy.TakeDamage(1); });
@@ -153,5 +153,10 @@ public class PlayerController : MonoBehaviour, IHasHP
     public int GetHP()
     {
         return hp;
+    }
+
+    public void FreezeInput(bool isFrozen)
+    {
+        skillBar.isInputFrozen = isFrozen;
     }
 }

@@ -23,6 +23,9 @@ public class SkillBarController : MonoBehaviour
     public SkillButton[] skills;
     public PlayerController player;
 
+    [NonSerialized]
+    public bool isInputFrozen;
+
     private void OnValidate()
     {
         foreach (SkillButton skill in skills)
@@ -42,14 +45,18 @@ public class SkillBarController : MonoBehaviour
     private void Update()
     {
         bool isButtonPressed = false;
-        foreach (SkillButton s in skills)
+        if (!isInputFrozen)
         {
-            if (Input.GetKeyDown(s.keyCode) && s.cooldownImage.fillAmount <= 0 && player.GetNumSlaves() >= s.skillCost)
+            foreach (SkillButton s in skills)
             {
-                s.cooldownImage.fillAmount = 1.0f;
-                s.currentCooldown = s.cooldown;
-                isButtonPressed = true;
-                player.HandleSkill(s.key, s.skillCost);
+                if (Input.GetKeyDown(s.keyCode) && s.cooldownImage.fillAmount <= 0 &&
+                    player.GetNumSlaves() >= s.skillCost)
+                {
+                    s.cooldownImage.fillAmount = 1.0f;
+                    s.currentCooldown = s.cooldown;
+                    isButtonPressed = true;
+                    player.HandleSkill(s.key, s.skillCost);
+                }
             }
         }
 
