@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour
 {
+    public int hp;
     public GameObject slave;
     public int initialSlaves;
     public GameObject spawnArea;

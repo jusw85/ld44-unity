@@ -1,21 +1,23 @@
 fileFormatVersion: 2
-guid: 39ec9c89d411a124d8585a7134ad27dd
-timeCreated: 1556473748
+guid: e798dd05f57b5d24ca02e63e116a1f31
+timeCreated: 1556520299
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: mob1_128_0
-    21300002: mob1_128_1
-    21300004: mob1_128_2
-    21300006: mob1_128_3
-    21300008: mob1_128_4
-    21300010: mob1_128_5
-    21300012: mob1_128_6
-    21300014: mob1_128_7
-    21300016: mob1_128_8
-    21300018: mob1_128_9
-    21300020: mob1_128_10
-    21300022: mob1_128_11
+    21300000: minion1_0
+    21300002: minion1_1
+    21300004: minion1_2
+    21300006: minion1_3
+    21300008: minion1_4
+    21300010: minion1_5
+    21300012: minion1_6
+    21300014: minion1_7
+    21300016: minion1_8
+    21300018: minion1_9
+    21300020: minion1_10
+    21300022: minion1_11
+    21300024: minion1_12
+    21300026: minion1_13
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -117,7 +119,63 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mob1_128_0
+      name: minion1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: minion1_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: minion1_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: minion1_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: minion1_4
       rect:
         serializedVersion: 2
         x: 0
@@ -131,7 +189,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_1
+      name: minion1_5
       rect:
         serializedVersion: 2
         x: 128
@@ -145,7 +203,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_2
+      name: minion1_6
       rect:
         serializedVersion: 2
         x: 256
@@ -159,7 +217,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_3
+      name: minion1_7
       rect:
         serializedVersion: 2
         x: 384
@@ -173,7 +231,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_4
+      name: minion1_8
       rect:
         serializedVersion: 2
         x: 0
@@ -187,7 +245,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_5
+      name: minion1_9
       rect:
         serializedVersion: 2
         x: 128
@@ -201,7 +259,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_6
+      name: minion1_10
       rect:
         serializedVersion: 2
         x: 256
@@ -215,7 +273,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_7
+      name: minion1_11
       rect:
         serializedVersion: 2
         x: 384
@@ -229,7 +287,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_8
+      name: minion1_12
       rect:
         serializedVersion: 2
         x: 0
@@ -243,38 +301,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_9
+      name: minion1_13
       rect:
         serializedVersion: 2
         x: 128
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: mob1_128_10
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: mob1_128_11
-      rect:
-        serializedVersion: 2
-        x: 384
         y: 0
         width: 128
         height: 128

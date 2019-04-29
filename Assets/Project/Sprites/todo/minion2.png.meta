@@ -1,21 +1,23 @@
 fileFormatVersion: 2
-guid: 39ec9c89d411a124d8585a7134ad27dd
-timeCreated: 1556473748
+guid: 4bad73c0938996247b3b3e9089de0b00
+timeCreated: 1556473778
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: mob1_128_0
-    21300002: mob1_128_1
-    21300004: mob1_128_2
-    21300006: mob1_128_3
-    21300008: mob1_128_4
-    21300010: mob1_128_5
-    21300012: mob1_128_6
-    21300014: mob1_128_7
-    21300016: mob1_128_8
-    21300018: mob1_128_9
-    21300020: mob1_128_10
-    21300022: mob1_128_11
+    21300000: slave1a_128_0
+    21300002: slave1a_128_1
+    21300004: slave1a_128_2
+    21300006: slave1a_128_3
+    21300008: slave1a_128_4
+    21300010: slave1a_128_5
+    21300012: slave1a_128_6
+    21300014: slave1a_128_7
+    21300016: slave1a_128_8
+    21300018: slave1a_128_9
+    21300020: slave1a_128_10
+    21300022: slave1a_128_11
+    21300024: slave1a_128_12
+    21300026: slave1a_128_13
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -117,7 +119,63 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mob1_128_0
+      name: slave1a_128_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: slave1a_128_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: slave1a_128_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: slave1a_128_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: slave1a_128_4
       rect:
         serializedVersion: 2
         x: 0
@@ -131,7 +189,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_1
+      name: slave1a_128_5
       rect:
         serializedVersion: 2
         x: 128
@@ -145,7 +203,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_2
+      name: slave1a_128_6
       rect:
         serializedVersion: 2
         x: 256
@@ -159,7 +217,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_3
+      name: slave1a_128_7
       rect:
         serializedVersion: 2
         x: 384
@@ -173,7 +231,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_4
+      name: slave1a_128_8
       rect:
         serializedVersion: 2
         x: 0
@@ -187,7 +245,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_5
+      name: slave1a_128_9
       rect:
         serializedVersion: 2
         x: 128
@@ -201,7 +259,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_6
+      name: slave1a_128_10
       rect:
         serializedVersion: 2
         x: 256
@@ -215,7 +273,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_7
+      name: slave1a_128_11
       rect:
         serializedVersion: 2
         x: 384
@@ -229,7 +287,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_8
+      name: slave1a_128_12
       rect:
         serializedVersion: 2
         x: 0
@@ -243,38 +301,10 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_9
+      name: slave1a_128_13
       rect:
         serializedVersion: 2
         x: 128
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: mob1_128_10
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: mob1_128_11
-      rect:
-        serializedVersion: 2
-        x: 384
         y: 0
         width: 128
         height: 128

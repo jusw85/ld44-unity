@@ -1,21 +1,21 @@
 fileFormatVersion: 2
-guid: 39ec9c89d411a124d8585a7134ad27dd
-timeCreated: 1556473748
+guid: dc476ea03d2332643926c344ec5410dc
+timeCreated: 1556473757
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: mob1_128_0
-    21300002: mob1_128_1
-    21300004: mob1_128_2
-    21300006: mob1_128_3
-    21300008: mob1_128_4
-    21300010: mob1_128_5
-    21300012: mob1_128_6
-    21300014: mob1_128_7
-    21300016: mob1_128_8
-    21300018: mob1_128_9
-    21300020: mob1_128_10
-    21300022: mob1_128_11
+    21300000: mob2_129_0
+    21300002: mob2_129_1
+    21300004: mob2_129_2
+    21300006: mob2_129_3
+    21300008: mob2_129_4
+    21300010: mob2_129_5
+    21300012: mob2_129_6
+    21300014: mob2_129_7
+    21300016: mob2_129_8
+    21300018: mob2_129_9
+    21300020: mob2_129_10
+    21300022: mob2_129_11
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mob1_128_0
+      name: mob2_129_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,7 +131,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_1
+      name: mob2_129_1
       rect:
         serializedVersion: 2
         x: 128
@@ -145,7 +145,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_2
+      name: mob2_129_2
       rect:
         serializedVersion: 2
         x: 256
@@ -159,7 +159,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_3
+      name: mob2_129_3
       rect:
         serializedVersion: 2
         x: 384
@@ -173,7 +173,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_4
+      name: mob2_129_4
       rect:
         serializedVersion: 2
         x: 0
@@ -187,7 +187,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_5
+      name: mob2_129_5
       rect:
         serializedVersion: 2
         x: 128
@@ -201,7 +201,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_6
+      name: mob2_129_6
       rect:
         serializedVersion: 2
         x: 256
@@ -215,7 +215,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_7
+      name: mob2_129_7
       rect:
         serializedVersion: 2
         x: 384
@@ -229,7 +229,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_8
+      name: mob2_129_8
       rect:
         serializedVersion: 2
         x: 0
@@ -243,7 +243,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_9
+      name: mob2_129_9
       rect:
         serializedVersion: 2
         x: 128
@@ -257,7 +257,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_10
+      name: mob2_129_10
       rect:
         serializedVersion: 2
         x: 256
@@ -271,7 +271,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: mob1_128_11
+      name: mob2_129_11
       rect:
         serializedVersion: 2
         x: 384
