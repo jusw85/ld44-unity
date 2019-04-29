@@ -51,13 +51,13 @@ public class PlayerController : MonoBehaviour, IHasHP
                 SpawnFireball(0, () => { enemy.TakeDamage(1); });
                 break;
             case "W":
-                SpawnFireball(1);
+                SpawnFireball(1, () => { enemy.TakeDamage(2); });
                 break;
             case "E":
                 SpawnShield();
                 break;
             case "R":
-                SpawnFireball(2);
+                SpawnFireball(2, () => { enemy.TakeDamage(3); });
                 break;
             default:
                 break;
@@ -97,6 +97,7 @@ public class PlayerController : MonoBehaviour, IHasHP
         {
             var obj = objectPooler.GetPoolObject(slave);
             obj.SetActive(true);
+            obj.GetComponent<SpriteRenderer>().flipX = false;
             var bounds = spawnBounds[Random.Range(0, spawnBounds.Length)];
             var xy = RandomPointInBounds(bounds);
             xy.z = 0;
@@ -109,7 +110,7 @@ public class PlayerController : MonoBehaviour, IHasHP
                 anim.SetLayerWeight(j, 0f);
             }
 
-            anim.SetLayerWeight(Random.Range(0, anim.layerCount), 1f);
+            anim.SetLayerWeight(Random.Range(0, 3), 1f);
             slaveObjs.Enqueue(obj);
         }
     }

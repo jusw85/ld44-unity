@@ -75,6 +75,69 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+  - serializedVersion: 5
+    m_Name: Minion1
+    m_StateMachine: {fileID: 1107409822574904758}
+    m_Mask: {fileID: 0}
+    m_Motions:
+    - serializedVersion: 2
+      m_State: {fileID: 1102346354804082924}
+      m_Motion: {fileID: 7400000, guid: ab004c9cfc8f9ac438791669ac317c40, type: 2}
+    - serializedVersion: 2
+      m_State: {fileID: 1102598660088373642}
+      m_Motion: {fileID: 7400000, guid: c95673f2e5f73664fb9689110e51d74c, type: 2}
+    - serializedVersion: 2
+      m_State: {fileID: 1102437686045936002}
+      m_Motion: {fileID: 7400000, guid: aaa129653fba58b4884f30ff6476ada5, type: 2}
+    m_Behaviours: []
+    m_BlendingMode: 0
+    m_SyncedLayerIndex: 0
+    m_DefaultWeight: 0
+    m_IKPass: 0
+    m_SyncedLayerAffectsTiming: 0
+    m_Controller: {fileID: 9100000}
+  - serializedVersion: 5
+    m_Name: Minion2
+    m_StateMachine: {fileID: 1107667907078771426}
+    m_Mask: {fileID: 0}
+    m_Motions:
+    - serializedVersion: 2
+      m_State: {fileID: 1102346354804082924}
+      m_Motion: {fileID: 7400000, guid: ea1c626431f51fc4db83719a70edb9b6, type: 2}
+    - serializedVersion: 2
+      m_State: {fileID: 1102598660088373642}
+      m_Motion: {fileID: 7400000, guid: 3cf7d10c9b138024d942f3b6db4c5c36, type: 2}
+    - serializedVersion: 2
+      m_State: {fileID: 1102437686045936002}
+      m_Motion: {fileID: 7400000, guid: afd3245d53f24df4e97c6e04c2bcdef1, type: 2}
+    m_Behaviours: []
+    m_BlendingMode: 0
+    m_SyncedLayerIndex: 0
+    m_DefaultWeight: 0
+    m_IKPass: 0
+    m_SyncedLayerAffectsTiming: 0
+    m_Controller: {fileID: 9100000}
+  - serializedVersion: 5
+    m_Name: Minion3
+    m_StateMachine: {fileID: 1107682704369088958}
+    m_Mask: {fileID: 0}
+    m_Motions:
+    - serializedVersion: 2
+      m_State: {fileID: 1102346354804082924}
+      m_Motion: {fileID: 7400000, guid: 86e859720dd2ade44b23fcf84292aef3, type: 2}
+    - serializedVersion: 2
+      m_State: {fileID: 1102598660088373642}
+      m_Motion: {fileID: 7400000, guid: 355308d9544d3b049951b76ebda9f9ce, type: 2}
+    - serializedVersion: 2
+      m_State: {fileID: 1102437686045936002}
+      m_Motion: {fileID: 7400000, guid: fc9294b061612564d8e0f39653d365d2, type: 2}
+    m_Behaviours: []
+    m_BlendingMode: 0
+    m_SyncedLayerIndex: 0
+    m_DefaultWeight: 0
+    m_IKPass: 0
+    m_SyncedLayerAffectsTiming: 0
+    m_Controller: {fileID: 9100000}
 --- !u!114 &114664467490464260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -366,6 +429,24 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 1102850012420413548}
+--- !u!1107 &1107409822574904758
+AnimatorStateMachine:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Minion1
+  m_ChildStates: []
+  m_ChildStateMachines: []
+  m_AnyStateTransitions: []
+  m_EntryTransitions: []
+  m_StateMachineTransitions: {}
+  m_StateMachineBehaviours: []
+  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_EntryPosition: {x: 50, y: 120, z: 0}
+  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+  m_DefaultState: {fileID: 0}
 --- !u!1107 &1107575348906845788
 AnimatorStateMachine:
   serializedVersion: 5
@@ -373,6 +454,42 @@ AnimatorStateMachine:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Slave3
+  m_ChildStates: []
+  m_ChildStateMachines: []
+  m_AnyStateTransitions: []
+  m_EntryTransitions: []
+  m_StateMachineTransitions: {}
+  m_StateMachineBehaviours: []
+  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_EntryPosition: {x: 50, y: 120, z: 0}
+  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+  m_DefaultState: {fileID: 0}
+--- !u!1107 &1107667907078771426
+AnimatorStateMachine:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Minion2
+  m_ChildStates: []
+  m_ChildStateMachines: []
+  m_AnyStateTransitions: []
+  m_EntryTransitions: []
+  m_StateMachineTransitions: {}
+  m_StateMachineBehaviours: []
+  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_EntryPosition: {x: 50, y: 120, z: 0}
+  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
+  m_DefaultState: {fileID: 0}
+--- !u!1107 &1107682704369088958
+AnimatorStateMachine:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Minion3
   m_ChildStates: []
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
