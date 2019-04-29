@@ -76,6 +76,7 @@ public class PlayerController : MonoBehaviour, IHasHP
     {
         var obj = Instantiate(fireball, muzzle.position, Quaternion.identity);
         obj.SetActive(true);
+        obj.GetComponent<SpriteRenderer>().flipX = false;
         var anim = obj.GetComponent<Animator>();
         anim.SetLayerWeight(0, 0);
         anim.SetLayerWeight(fireballType, 1);
@@ -139,6 +140,11 @@ public class PlayerController : MonoBehaviour, IHasHP
         );
     }
 
+    public void TakeDamage(int dmg)
+    {
+        hp -= dmg;
+    }
+    
     public int GetHP()
     {
         return hp;

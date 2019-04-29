@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemyController : MonoBehaviour, IHasHP
 {
@@ -36,9 +40,21 @@ public class EnemyController : MonoBehaviour, IHasHP
         }
 
         SpawnSlaves(initialSlaves);
+
+        StartCoroutine(Fire());
     }
 
-//
+    IEnumerator Fire()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(3f);
+            SpawnFireball(2, () => { player.TakeDamage(2); });
+            SacSlaves(2);
+            animator.SetTrigger("cast");
+        }
+    }
+
 //    public void HandleSkill(String key, int cost)
 //    {
 //        SacSlaves(cost);
@@ -62,32 +78,33 @@ public class EnemyController : MonoBehaviour, IHasHP
 //
 //        animator.SetTrigger("cast");
 //    }
-//
-//    private void SpawnShield()
-//    {
-//        shield.SetActive(true);
-//        shield.GetComponent<Animator>().SetTrigger("activate");
-//    }
-//
-//    private void SpawnFireball(int fireballType, Action postComplete = null)
-//    {
-//        var obj = Instantiate(fireball, muzzle.position, Quaternion.identity);
-//        obj.SetActive(true);
-//        var anim = obj.GetComponent<Animator>();
-//        anim.SetLayerWeight(0, 0);
-//        anim.SetLayerWeight(fireballType, 1);
-//
-//        DOTween.To(() => obj.transform.position,
-//                x => obj.transform.position = x,
-//                enemy.transform.position, 1f)
-//            .SetEase(Ease.InQuad)
-//            .OnComplete(() =>
-//            {
-//                anim.SetTrigger("boom");
-//                if (postComplete != null) postComplete();
-//            });
-//    }
-//
+
+    private void SpawnShield()
+    {
+        shield.SetActive(true);
+        shield.GetComponent<Animator>().SetTrigger("activate");
+    }
+
+    private void SpawnFireball(int fireballType, Action postComplete = null)
+    {
+        var obj = Instantiate(fireball, muzzle.position, Quaternion.identity);
+        obj.SetActive(true);
+        obj.GetComponent<SpriteRenderer>().flipX = true;
+        var anim = obj.GetComponent<Animator>();
+        anim.SetLayerWeight(0, 0);
+        anim.SetLayerWeight(fireballType, 1);
+
+        DOTween.To(() => obj.transform.position,
+                x => obj.transform.position = x,
+                player.transform.position, 1f)
+            .SetEase(Ease.InQuad)
+            .OnComplete(() =>
+            {
+                anim.SetTrigger("boom");
+                if (postComplete != null) postComplete();
+            });
+    }
+
     public void SpawnSlaves(int numSlaves)
     {
         for (int i = 0; i < numSlaves; i++)
@@ -112,22 +129,21 @@ public class EnemyController : MonoBehaviour, IHasHP
         }
     }
 
-//
-//    public void SacSlaves(int numSlaves)
-//    {
-//        int n = Math.Min(numSlaves, slaveObjs.Count);
-//        for (int i = 0; i < n; i++)
-//        {
-//            GameObject obj = slaveObjs.Dequeue();
-//            obj.GetComponent<Animator>().SetTrigger("slaveSac");
-//        }
-//    }
-//
-//    public int GetNumSlaves()
-//    {
-//        return slaveObjs.Count;
-//    }
-//
+    public void SacSlaves(int numSlaves)
+    {
+        int n = Math.Min(numSlaves, slaveObjs.Count);
+        for (int i = 0; i < n; i++)
+        {
+            GameObject obj = slaveObjs.Dequeue();
+            obj.GetComponent<Animator>().SetTrigger("slaveSac");
+        }
+    }
+
+    public int GetNumSlaves()
+    {
+        return slaveObjs.Count;
+    }
+
     private static Vector3 RandomPointInBounds(Bounds bounds)
     {
         return new Vector3(
