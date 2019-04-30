@@ -196,6 +196,7 @@ public class EnemyController : MonoBehaviour, IHasHP
             SceneManager.LoadScene("WinScreen");
             yield break;
         }
+        player.SpawnSlaves(5);
         animator.SetLayerWeight(currentBg, 0f);
         currentBg = (currentBg + 1) % bgs.Length;
         animator.SetLayerWeight(currentBg, 1f);
@@ -222,7 +223,7 @@ public class EnemyController : MonoBehaviour, IHasHP
 
     private IEnumerator FreezeCooldown()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         animator.speed = 1f;
         isFrozen = false;
     }
