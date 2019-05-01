@@ -24,16 +24,21 @@ public class PlayerController : MonoBehaviour, IHasHP
     private GameObject shield;
 
     private int shieldHp;
+    private bool _isCasting;
 
-    private void Start()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
-        objectPooler = ObjectPooler.instance;
-        objectPooler.CreatePool(slave, Mathf.Max(200, initialSlaves));
-        slaveObjs = new Queue<GameObject>();
-
+        _isCasting = false;
         muzzle = transform.Find("Muzzle");
         shield = transform.Find("Shield").gameObject;
+        slaveObjs = new Queue<GameObject>();
+    }
+    
+    private void Start()
+    {
+        objectPooler = ObjectPooler.instance;
+        objectPooler.CreatePool(slave, Mathf.Max(200, initialSlaves));
 
         BoxCollider2D[] colliders = spawnArea.GetComponentsInChildren<BoxCollider2D>();
         spawnBounds = new Bounds[colliders.Length];
@@ -71,6 +76,7 @@ public class PlayerController : MonoBehaviour, IHasHP
         }
 
         animator.SetTrigger("cast");
+        _isCasting = true;
     }
 
     private void SpawnShield()
@@ -189,9 +195,22 @@ public class PlayerController : MonoBehaviour, IHasHP
         {
             return shield.transform.position;
         }
-        else
-        {
-            return transform.position;
-        }
+
+        return transform.position;
+    }
+
+    public void SetCharging(bool isCharging)
+    {
+        animator.SetTrigger(isCharging ? "charging" : "stopCharging");
+    }
+
+    public bool isCasting()
+    {
+        return _isCasting;
+    }
+
+    public void SetIsCasting(bool isCasting)
+    {
+        _isCasting = isCasting;
     }
 }

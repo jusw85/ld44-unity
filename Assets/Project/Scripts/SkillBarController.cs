@@ -62,8 +62,9 @@ public class SkillBarController : MonoBehaviour
             }
         }
 
-        if (currentButtonPressed == null)
+        if (currentButtonPressed == null && buttonPress != null && player.isCasting() == false)
         {
+            player.SetCharging(true);
             currentButtonPressed = buttonPress;
         }
 
@@ -82,6 +83,7 @@ public class SkillBarController : MonoBehaviour
             }
             else
             {
+                player.SetCharging(false);
                 chargeBar.value = 0f;
                 currentButtonPressed = null;
             }
