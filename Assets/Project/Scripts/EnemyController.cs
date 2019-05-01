@@ -166,11 +166,14 @@ public class EnemyController : MonoBehaviour, IHasHP
 
     public void TakeDamage(int dmg)
     {
-        hp -= dmg;
-        hp = Mathf.Clamp(hp, 0, hp);
-        if (hp <= 0)
+        if (!isDead)
         {
-            DoMeDeath();
+            hp -= dmg;
+            hp = Mathf.Clamp(hp, 0, hp);
+            if (hp <= 0)
+            {
+                DoMeDeath();
+            }
         }
     }
 

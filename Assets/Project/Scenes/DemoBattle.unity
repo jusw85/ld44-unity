@@ -790,7 +790,7 @@ MonoBehaviour:
   skills:
   - key: Q
     cooldownImage: {fileID: 1593069390}
-    cooldown: 1.5
+    cooldown: 0.5
     skillCost: 0
   - key: W
     cooldownImage: {fileID: 3558283}
