@@ -50,8 +50,23 @@ public class SkillBarController : MonoBehaviour
         }
     }
 
+    public void FreezeInput(bool isFrozen)
+    {
+        isInputFrozen = isFrozen;
+        if (isFrozen)
+        {
+            chargeBar.value = 0f;
+            currentButtonPressed = null;
+        }
+    }
+
     private void Update()
     {
+        if (isInputFrozen)
+        {
+            return;
+        }
+
         SkillButton buttonPress = null;
         foreach (SkillButton s in skills)
         {

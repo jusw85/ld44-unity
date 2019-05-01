@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour, IHasHP
         shield = transform.Find("Shield").gameObject;
         slaveObjs = new Queue<GameObject>();
     }
-    
+
     private void Start()
     {
         objectPooler = ObjectPooler.instance;
@@ -186,7 +186,11 @@ public class PlayerController : MonoBehaviour, IHasHP
 
     public void FreezeInput(bool isFrozen)
     {
-        skillBar.isInputFrozen = isFrozen;
+        skillBar.FreezeInput(isFrozen);
+        if (isFrozen)
+        {
+            animator.SetTrigger("doIdle");
+        }
     }
 
     public Vector3 GetFireTarget()
@@ -201,7 +205,7 @@ public class PlayerController : MonoBehaviour, IHasHP
 
     public void SetCharging(bool isCharging)
     {
-        animator.SetTrigger(isCharging ? "charging" : "stopCharging");
+        animator.SetTrigger(isCharging ? "charging" : "doIdle");
     }
 
     public bool isCasting()
