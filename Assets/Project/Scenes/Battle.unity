@@ -749,7 +749,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 237908380}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -787,25 +787,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 441e0cd3077d31a4cb5c251d0364eba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skills:
-  - key: Q
-    cooldownImage: {fileID: 1593069390}
-    cooldown: 0.5
-    skillCost: 0
-  - key: W
-    cooldownImage: {fileID: 3558283}
-    cooldown: 2.5
-    skillCost: 2
-  - key: E
-    cooldownImage: {fileID: 1325906008}
-    cooldown: 4
-    skillCost: 3
-  - key: R
-    cooldownImage: {fileID: 907307541}
-    cooldown: 5.5
-    skillCost: 4
-  player: {fileID: 1777106730}
-  chargeBar: {fileID: 489983444}
+  skillPrefab: {fileID: 1670935321716716, guid: 1c3173babf4e48647961f919c324f5f9,
+    type: 2}
+  skillLeftOffset: 42
+  skillSpacing: 90
 --- !u!1001 &364081965
 Prefab:
   m_ObjectHideFlags: 0
@@ -967,7 +952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &436432645
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1814,7 +1799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1057095267
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2696,7 +2681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1523980120
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3037,6 +3022,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7015a99a2bc11204fb55e1902a3b6c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skills:
+  - name: Arcane Bolt
+    key: Q
+    skillImage: {fileID: 21300006, guid: 8769f22192b9de84b9b4f9341998412b, type: 3}
+    cooldown: 0.5
+    skillCost: 0
+  - name: Ice
+    key: W
+    skillImage: {fileID: 21300010, guid: 8769f22192b9de84b9b4f9341998412b, type: 3}
+    cooldown: 2.5
+    skillCost: 2
+  - name: Shield
+    key: E
+    skillImage: {fileID: 21300002, guid: 8769f22192b9de84b9b4f9341998412b, type: 3}
+    cooldown: 4
+    skillCost: 3
+  - name: Fireball
+    key: R
+    skillImage: {fileID: 21300000, guid: 8769f22192b9de84b9b4f9341998412b, type: 3}
+    cooldown: 5.5
+    skillCost: 4
   hp: 20
   slave: {fileID: 1870032642800322, guid: ca52c7a171512004484579e119debdac, type: 2}
   initialSlaves: 20
@@ -3044,6 +3050,7 @@ MonoBehaviour:
   skillBar: {fileID: 237908384}
   fireball: {fileID: 1954971418727182, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}
   enemy: {fileID: 1645872003}
+  chargeBar: {fileID: 489983444}
 --- !u!114 &1777106731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3285,7 +3292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1975516771
 RectTransform:
   m_ObjectHideFlags: 0

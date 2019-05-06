@@ -3,10 +3,29 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour, IHasHP
 {
+    [Serializable]
+    public class SkillButton
+    {
+        public String name;
+        public String key;
+        public Sprite skillImage;
+        public float cooldown;
+        public int skillCost;
+
+        [NonSerialized]
+        public float currentCooldown;
+
+        [NonSerialized]
+        public KeyCode keyCode;
+    }
+
+    public SkillButton[] skills;
+
     public int hp;
     public GameObject slave;
     public int initialSlaves;
@@ -26,6 +45,12 @@ public class PlayerController : MonoBehaviour, IHasHP
     private int shieldHp;
     private bool _isCasting;
 
+    public Slider chargeBar;
+    private SkillButton currentButtonPressed;
+
+    [NonSerialized]
+    public bool isInputFrozen;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -33,6 +58,58 @@ public class PlayerController : MonoBehaviour, IHasHP
         muzzle = transform.Find("Muzzle");
         shield = transform.Find("Shield").gameObject;
         slaveObjs = new Queue<GameObject>();
+
+        foreach (SkillButton skill in skills)
+        {
+            skill.keyCode = (KeyCode) Enum.Parse(typeof(KeyCode), skill.key);
+        }
+
+        currentButtonPressed = null;
+    }
+
+    private void Update()
+    {
+        if (isInputFrozen)
+        {
+            return;
+        }
+
+        SkillButton buttonPress = null;
+        foreach (SkillButton s in skills)
+        {
+            if (Input.GetKey(s.keyCode))
+            {
+                buttonPress = s;
+                break;
+            }
+        }
+
+        if (currentButtonPressed == null && buttonPress != null && isCasting() == false)
+        {
+            SetCharging(true);
+            currentButtonPressed = buttonPress;
+        }
+
+        if (currentButtonPressed != null)
+        {
+            if (currentButtonPressed == buttonPress)
+            {
+                chargeBar.value += Time.deltaTime / currentButtonPressed.cooldown;
+                chargeBar.value = Mathf.Clamp(chargeBar.value, 0f, 1f);
+                if (chargeBar.value >= 1)
+                {
+                    HandleSkill(currentButtonPressed.key, currentButtonPressed.skillCost);
+                    chargeBar.value = 0f;
+                    currentButtonPressed = null;
+                }
+            }
+            else
+            {
+                SetCharging(false);
+                chargeBar.value = 0f;
+                currentButtonPressed = null;
+            }
+        }
     }
 
     private void Start()
@@ -48,6 +125,11 @@ public class PlayerController : MonoBehaviour, IHasHP
         }
 
         SpawnSlaves(initialSlaves);
+
+        foreach (var skill in skills)
+        {
+            skillBar.CreateSkill(skill.name, skill.key, skill.skillImage);
+        }
     }
 
     public void HandleSkill(String key, int cost)
@@ -186,9 +268,11 @@ public class PlayerController : MonoBehaviour, IHasHP
 
     public void FreezeInput(bool isFrozen)
     {
-        skillBar.FreezeInput(isFrozen);
+        isInputFrozen = isFrozen;
         if (isFrozen)
         {
+            chargeBar.value = 0f;
+            currentButtonPressed = null;
             animator.SetTrigger("doIdle");
         }
     }
