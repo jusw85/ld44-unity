@@ -2169,30 +2169,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7015a99a2bc11204fb55e1902a3b6c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skills:
-  - name: Arcane Bolt
-    key: Q
-    skillImage: {fileID: 21300006, guid: 8769f22192b9de84b9b4f9341998412b, type: 3}
-    cooldown: 0.5
-    skillCost: 0
-  - name: Ice
-    key: W
-    skillImage: {fileID: 21300010, guid: 8769f22192b9de84b9b4f9341998412b, type: 3}
-    cooldown: 2.5
-    skillCost: 2
-  - name: Shield
-    key: E
-    skillImage: {fileID: 21300002, guid: 8769f22192b9de84b9b4f9341998412b, type: 3}
-    cooldown: 4
-    skillCost: 3
-  - name: Fireball
-    key: R
-    skillImage: {fileID: 21300000, guid: 8769f22192b9de84b9b4f9341998412b, type: 3}
-    cooldown: 5.5
-    skillCost: 4
+  spells:
+  - {fileID: 11400000, guid: 780b772feafb79847b63c4068e14a26d, type: 2}
+  - {fileID: 11400000, guid: 35ea2db89a204264eadfd625c7de7b4f, type: 2}
+  - {fileID: 11400000, guid: 59abf89ffc5754742ba71b681c0cc93f, type: 2}
+  - {fileID: 11400000, guid: 947055dd7c62c9a4b905684c2b47aa4e, type: 2}
   hp: 20
-  slave: {fileID: 1870032642800322, guid: ca52c7a171512004484579e119debdac, type: 2}
   initialSlaves: 20
+  slavePrefab: {fileID: 1870032642800322, guid: ca52c7a171512004484579e119debdac,
+    type: 2}
   spawnArea: {fileID: 1227484637}
   skillBar: {fileID: 237908384}
   fireball: {fileID: 1954971418727182, guid: e5eb281f9d3763143b968bc94559ee68, type: 2}

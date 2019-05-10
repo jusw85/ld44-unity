@@ -8,60 +8,52 @@ using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour, IHasHP
 {
-//    [Serializable]
-//    public class SkillButton
-//    {
-//        public String name;
-//        public String key;
-//        public Sprite skillImage;
-//        public float cooldown;
-//        public int skillCost;
-//
-//        [NonSerialized]
-//        public float currentCooldown;
-//
-//        [NonSerialized]
-//        public KeyCode keyCode;
-//    }
-//
-    public Spell[] spells;
-
     #region PUBLIC_VARIABLES
+
+    [Header("Data")]
+    public Spell[] spells;
     public int hp;
-    public GameObject slave;
     public int initialSlaves;
+    public GameObject slavePrefab;
     public GameObject spawnArea;
+
+    [Header("Control")]
     public SkillBarController skillBar;
     public GameObject fireball;
     public EnemyController enemy;
+    public Slider chargeBar;
+
     #endregion
-    
+
     #region PRIVATE_VARIABLES
-    private Animator animator;
+
     private ObjectPooler objectPooler;
     private Bounds[] spawnBounds;
     private Queue<GameObject> slaveObjs;
+    private int shieldHp;
+    private bool _isCasting;
+    private Spell currentButtonPressed;
+    private bool isInputFrozen;
+
     #endregion
 
+    #region CACHED_VARIABLES
+
+    private Animator animator;
     private Transform muzzle;
     private GameObject shield;
 
-    private int shieldHp;
-    private bool _isCasting;
+    #endregion
 
-    public Slider chargeBar;
-    private Spell currentButtonPressed;
-
-    [NonSerialized]
-    public bool isInputFrozen;
-    
     #region UNITY_CALLBACKS
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        muzzle = transform.GetChild(0);
+        shield = transform.GetChild(1).gameObject;
+
         _isCasting = false;
-        muzzle = transform.Find("Muzzle");
-        shield = transform.Find("Shield").gameObject;
         slaveObjs = new Queue<GameObject>();
 
         foreach (Spell skill in spells)
@@ -120,7 +112,7 @@ public class PlayerController : MonoBehaviour, IHasHP
     private void Start()
     {
         objectPooler = ObjectPooler.instance;
-        objectPooler.CreatePool(slave, Mathf.Max(200, initialSlaves));
+        objectPooler.CreatePool(slavePrefab, Mathf.Max(200, initialSlaves));
 
         BoxCollider2D[] colliders = spawnArea.GetComponentsInChildren<BoxCollider2D>();
         spawnBounds = new Bounds[colliders.Length];
@@ -133,9 +125,10 @@ public class PlayerController : MonoBehaviour, IHasHP
 
         foreach (var skill in spells)
         {
-            skillBar.CreateSkill(skill.name, skill.key, skill.icon);
+            skillBar.CreateSkill(skill.spellName, skill.key, skill.icon);
         }
     }
+
     #endregion
 
     public void HandleSkill(String key, int cost)
@@ -203,7 +196,7 @@ public class PlayerController : MonoBehaviour, IHasHP
     {
         for (int i = 0; i < numSlaves; i++)
         {
-            var obj = objectPooler.GetPoolObject(slave);
+            var obj = objectPooler.GetPoolObject(slavePrefab);
             obj.SetActive(true);
             obj.GetComponent<SpriteRenderer>().flipX = false;
             var bounds = spawnBounds[Random.Range(0, spawnBounds.Length)];
