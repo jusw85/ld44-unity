@@ -25,10 +25,44 @@ namespace Fungus
 
         [Tooltip("The name text UI object")]
         [SerializeField] protected Text nameText;
+        [Tooltip("TextAdapter will search for appropriate output on this GameObject if nameText is null")]
+        [SerializeField] protected GameObject nameTextGO;
+        protected TextAdapter nameTextAdapter = new TextAdapter();
+        public virtual string NameText
+        {
+            get
+            {
+                return nameTextAdapter.Text;
+            }
+            set
+            {
+                nameTextAdapter.Text = value;
+            }
+        }
 
         [Tooltip("The story text UI object")]
         [SerializeField] protected Text storyText;
-        public virtual Text StoryText { get { return storyText; } }
+        [Tooltip("TextAdapter will search for appropriate output on this GameObject if storyText is null")]
+        [SerializeField] protected GameObject storyTextGO;
+        protected TextAdapter storyTextAdapter = new TextAdapter();
+        public virtual string StoryText
+        {
+            get
+            {
+                return storyTextAdapter.Text;
+            }
+            set
+            {
+                storyTextAdapter.Text = value;
+            }
+        }
+        public virtual RectTransform StoryTextRectTrans
+        {
+            get
+            {
+                return storyText != null ? storyText.rectTransform : storyTextGO.GetComponent<RectTransform>();
+            }
+        }
 
         [Tooltip("The character UI object")]
         [SerializeField] protected Image characterImage;
@@ -67,7 +101,10 @@ namespace Fungus
 			{
 				activeSayDialogs.Add(this);
 			}
-		}
+
+            nameTextAdapter.InitFromGameObject(nameText != null ? nameText.gameObject : nameTextGO);
+            storyTextAdapter.InitFromGameObject(storyText != null ? storyText.gameObject : storyTextGO);
+        }
 
 		protected virtual void OnDestroy()
 		{
@@ -138,7 +175,7 @@ namespace Fungus
             // Start method of another component, so check that no image has been set yet.
             // Same for nameText.
 
-            if (nameText != null && nameText.text == "")
+            if (NameText == "")
             {
                 SetCharacterName("", Color.white);
             }
@@ -198,10 +235,7 @@ namespace Fungus
 
         protected virtual void ClearStoryText()
         {
-            if (storyText != null)
-            {
-                storyText.text = "";
-            }
+            StoryText = "";
         }
 
         #region Public members
@@ -299,9 +333,9 @@ namespace Fungus
                 {
                     characterImage.gameObject.SetActive(false);
                 }
-                if (nameText != null)
+                if (NameText != null)
                 {
-                    nameText.text = "";
+                    NameText = "";
                 }
                 speakingCharacter = null;
             }
@@ -370,7 +404,7 @@ namespace Fungus
 
                 if (startStoryTextWidth != 0)
                 {
-                    storyText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 
+                    StoryTextRectTrans.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 
                         startStoryTextInset, 
                         startStoryTextWidth);
                 }
@@ -378,25 +412,25 @@ namespace Fungus
 
             // Adjust story text box to not overlap image rect
             if (fitTextWithImage && 
-                storyText != null &&
+                StoryText != null &&
                 characterImage.gameObject.activeSelf)
             {
                 if (Mathf.Approximately(startStoryTextWidth, 0f))
                 {
-                    startStoryTextWidth = storyText.rectTransform.rect.width;
-                    startStoryTextInset = storyText.rectTransform.offsetMin.x; 
+                    startStoryTextWidth = StoryTextRectTrans.rect.width;
+                    startStoryTextInset = StoryTextRectTrans.offsetMin.x; 
                 }
 
                 // Clamp story text to left or right depending on relative position of the character image
-                if (storyText.rectTransform.position.x < characterImage.rectTransform.position.x)
+                if (StoryTextRectTrans.position.x < characterImage.rectTransform.position.x)
                 {
-                    storyText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 
+                    StoryTextRectTrans.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 
                         startStoryTextInset, 
                         startStoryTextWidth - characterImage.rectTransform.rect.width);
                 }
                 else
                 {
-                    storyText.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 
+                    StoryTextRectTrans.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Right, 
                         startStoryTextInset, 
                         startStoryTextWidth - characterImage.rectTransform.rect.width);
                 }
@@ -409,11 +443,11 @@ namespace Fungus
         /// </summary>
         public virtual void SetCharacterName(string name, Color color)
         {
-            if (nameText != null)
+            if (NameText != null)
             {
                 var subbedName = stringSubstituter.SubstituteStrings(name);
-                nameText.text = subbedName;
-                nameText.color = color;
+                NameText = subbedName;
+                nameTextAdapter.SetTextColor(color);
             }
         }
 

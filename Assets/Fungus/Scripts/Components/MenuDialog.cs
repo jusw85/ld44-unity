@@ -176,6 +176,10 @@ namespace Fungus
         {
             StopAllCoroutines();
 
+            //if something was shown notify that we are ending
+            if(nextOptionIndex != 0)
+                MenuSignals.DoMenuEnd(this);
+
             nextOptionIndex = 0;
 
             var optionButtons = CachedButtons;
@@ -292,8 +296,12 @@ namespace Fungus
             if (nextOptionIndex >= CachedButtons.Length)
                 return false;
 
-            var button = cachedButtons[nextOptionIndex];
+            //if first option notify that a menu has started
+            if(nextOptionIndex == 0)
+                MenuSignals.DoMenuStart(this);
 
+            var button = cachedButtons[nextOptionIndex];
+            
             //move forward for next call
             nextOptionIndex++;
 
@@ -307,14 +315,18 @@ namespace Fungus
             {
                 EventSystem.current.SetSelectedGameObject(button.gameObject);
             }
-            Text textComponent = button.GetComponentInChildren<Text>();
-            if (textComponent != null)
+
+            TextAdapter textAdapter = new TextAdapter();
+            textAdapter.InitFromGameObject(button.gameObject, true);
+            if (textAdapter.HasTextObject())
             {
-                textComponent.text = text;
+                text = TextVariationHandler.SelectVariations(text);
+
+                textAdapter.Text = text;
             }
+
             button.onClick.AddListener(action);
             
-
             return true;
         }
 
