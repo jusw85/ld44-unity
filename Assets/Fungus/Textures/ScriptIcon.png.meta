@@ -1,11 +1,15 @@
 fileFormatVersion: 2
 guid: c22400d5bd211479099238aaacbd4852
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: ScriptIcon32
-    21300002: ScriptIcon
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: ScriptIcon32
+  - first:
+      213: 21300002
+    second: ScriptIcon
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -77,11 +81,13 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5d859b62f735f03a2bb27deda29a3217
+    spriteID: 18d96a947ff20c4308aff86b34df5497
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
