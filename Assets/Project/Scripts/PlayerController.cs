@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class PlayerController : MonoBehaviour, IHasHP
+public class PlayerController : MonoBehaviour
 {
     #region PUBLIC_VARIABLES
 
     [Header("Data")]
     public Spell[] spells;
-    public int hp;
+    public FloatVariable hp;
     public int initialSlaves;
     public GameObject slavePrefab;
     public GameObject spawnArea;
@@ -248,16 +248,11 @@ public class PlayerController : MonoBehaviour, IHasHP
             return;
         }
 
-        hp -= dmg;
-        if (hp <= 0)
+        hp.Value -= dmg;
+        if (hp.Value <= 0)
         {
             SceneManager.LoadScene(sceneName: "LoseScreen");
         }
-    }
-
-    public int GetHP()
-    {
-        return hp;
     }
 
     public void FreezeInput(bool isFrozen)

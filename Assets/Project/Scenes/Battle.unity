@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 147521831}
   - component: {fileID: 147521833}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -514,11 +514,11 @@ RectTransform:
   m_Father: {fileID: 1922885888}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.8, y: -25}
-  m_SizeDelta: {x: 160, y: 0}
-  m_Pivot: {x: 0, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -20}
+  m_SizeDelta: {x: 0, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &147521831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1374,7 +1374,7 @@ GameObject:
   - component: {fileID: 1027733642}
   - component: {fileID: 1027733644}
   m_Layer: 5
-  m_Name: Text (3)
+  m_Name: Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1598,7 +1598,7 @@ GameObject:
   - component: {fileID: 1104017756}
   - component: {fileID: 1104017755}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: EnemyHP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2438,7 +2438,7 @@ GameObject:
   - component: {fileID: 1922885890}
   - component: {fileID: 1922885889}
   m_Layer: 5
-  m_Name: Text
+  m_Name: PlayerHP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
