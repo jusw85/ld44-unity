@@ -4,36 +4,19 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Spell")]
 public class Spell : ScriptableObject
 {
-    public String spellName;
-    public String key;
-    public Sprite icon;
-    public float cooldown;
-    public int cost;
+    [SerializeField] private String spellName;
+    [SerializeField] private KeyCode key;
+    [SerializeField] private Sprite icon;
+    [SerializeField] private float cooldown;
+    [SerializeField] private int cost;
 
-    [NonSerialized]
-    public KeyCode keyCode;
+    public string SpellName => spellName;
 
-    private void Awake()
-    {
-        Debug.Log("AWAKE!");
-        keyCode = (KeyCode) Enum.Parse(typeof(KeyCode), key);
-    }
+    public KeyCode Key => key;
 
-    private void OnEnable()
-    {
-        Debug.Log("ENABLE!");
-    }
-    private void OnDisable()
-    {
-        Debug.Log("DISABLE!");
-    }
-    private void OnDestroy()
-    {
-        Debug.Log("DESTROY!");
-    }
+    public Sprite Icon => icon;
 
-    private void OnValidate()
-    {
-        Debug.Log("VALIDATE!");
-    }
+    public float Cooldown => cooldown;
+
+    public int Cost => cost;
 }

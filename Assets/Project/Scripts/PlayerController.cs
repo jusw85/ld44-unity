@@ -56,11 +56,6 @@ public class PlayerController : MonoBehaviour, IHasHP
         _isCasting = false;
         slaveObjs = new Queue<GameObject>();
 
-        foreach (Spell skill in spells)
-        {
-            skill.keyCode = (KeyCode) Enum.Parse(typeof(KeyCode), skill.key);
-        }
-
         currentButtonPressed = null;
     }
 
@@ -74,7 +69,7 @@ public class PlayerController : MonoBehaviour, IHasHP
         Spell buttonPress = null;
         foreach (Spell s in spells)
         {
-            if (Input.GetKey(s.keyCode))
+            if (Input.GetKey(s.Key))
             {
                 buttonPress = s;
                 break;
@@ -91,11 +86,11 @@ public class PlayerController : MonoBehaviour, IHasHP
         {
             if (currentButtonPressed == buttonPress)
             {
-                chargeBar.value += Time.deltaTime / currentButtonPressed.cooldown;
+                chargeBar.value += Time.deltaTime / currentButtonPressed.Cooldown;
                 chargeBar.value = Mathf.Clamp(chargeBar.value, 0f, 1f);
                 if (chargeBar.value >= 1)
                 {
-                    HandleSkill(currentButtonPressed.key, currentButtonPressed.cost);
+                    HandleSkill(currentButtonPressed.Key.ToString(), currentButtonPressed.Cost);
                     chargeBar.value = 0f;
                     currentButtonPressed = null;
                 }
@@ -125,7 +120,7 @@ public class PlayerController : MonoBehaviour, IHasHP
 
         foreach (var skill in spells)
         {
-            skillBar.CreateSkill(skill.spellName, skill.key, skill.icon);
+            skillBar.CreateSkill(skill.SpellName, skill.Key.ToString(), skill.Icon);
         }
     }
 
