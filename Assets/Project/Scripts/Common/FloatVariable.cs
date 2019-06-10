@@ -4,7 +4,7 @@
 public class FloatVariable : ScriptableObject
 {
 #if UNITY_EDITOR
-    [Multiline] public string DeveloperDescription = "";
+    [SerializeField] [Multiline] private string developerDescription;
 #endif
     [SerializeField] private float defaultValue;
     private float value;
@@ -20,5 +20,10 @@ public class FloatVariable : ScriptableObject
     private void OnEnable()
     {
         value = defaultValue;
+    }
+
+    public override string ToString()
+    {
+        return Value.ToString();
     }
 }

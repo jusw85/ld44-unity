@@ -4,7 +4,7 @@
 public class StringVariable : ScriptableObject
 {
 #if UNITY_EDITOR
-    [Multiline] public string DeveloperDescription = "";
+    [SerializeField] [Multiline] private string developerDescription;
 #endif
     [SerializeField] private string defaultValue;
     private string value;
@@ -20,5 +20,10 @@ public class StringVariable : ScriptableObject
     private void OnEnable()
     {
         value = defaultValue;
+    }
+
+    public override string ToString()
+    {
+        return Value;
     }
 }
