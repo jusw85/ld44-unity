@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
+[DisallowMultipleComponent]
 public class PlayerController : MonoBehaviour
 {
     #region PUBLIC_VARIABLES

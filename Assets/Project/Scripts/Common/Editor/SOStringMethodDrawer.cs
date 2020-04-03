@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Linq;
 using UnityEditor;
+using UnityEditorInternal;
 using UnityEngine;
+using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 [CustomPropertyDrawer(typeof(SOStringMethod))]
 public class SOStringMethodDrawer : PropertyDrawer
 {
-    private string[] toStringMethods(UnityEngine.Object obj)
+    private string[] toStringMethods(Object obj)
     {
 //        var mis = textSource.GetType().GetMethods();
 //        foreach (var mi in mis)
@@ -38,6 +41,53 @@ public class SOStringMethodDrawer : PropertyDrawer
             .Select(mi => mi.Name)
             .ToArray();
         return toStringMethods;
+    }
+
+//    Reference
+//    https://github.com/Unity-Technologies/UnityCsReference/blob/master/Editor/Mono/Inspector/UnityEventDrawer.cs
+    private string[] toStringMethods2(Object obj)
+    {
+        var component = obj as Component;
+        if (component != null) obj = component.gameObject;
+
+        // empty first list item (none)
+        // if obj is null, return
+        // separator
+        if (obj == null) return new string[] { };
+
+        // obj to go
+        // go's components (check for duplicate components)
+        //    include namespace in case same name, different namespace
+        // use full name
+
+//        UnityEventDrawer
+
+        var methods = toStringMethods(obj);
+        foreach (string s in methods)
+        {
+            Debug.Log(obj.GetType().Name + " " + obj.GetType().FullName + " " + s);
+        }
+
+        // add to menu
+//        string.IsNullOrEmpty()
+
+        var gameObject = obj as GameObject;
+        if (gameObject != null)
+        {
+            Component[] comps = gameObject.GetComponents<Component>();
+            foreach (Component comp in comps)
+            {
+                if (comp == null)
+                    continue;
+                var toStringMethodsComp = toStringMethods(comp);
+                foreach (string s in toStringMethodsComp)
+                {
+                    Debug.Log(comp.GetType().Name + " " + comp.GetType().FullName + " " + s);
+                }
+            }
+        }
+
+        return methods;
     }
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -74,6 +124,10 @@ public class SOStringMethodDrawer : PropertyDrawer
         else
         {
             string[] methods = toStringMethods(objProp.objectReferenceValue);
+
+//            toStringMethods2(objProp.objectReferenceValue);
+//            if (GUI.Button(functionRect, buttonContent, EditorStyles.popup))
+//                BuildPopupList(listenerTarget.objectReferenceValue, m_DummyEvent, pListener).DropDown(functionRect);
             if (methods.Length == 0)
             {
                 DrawDisabledPopup(position);
@@ -89,9 +143,10 @@ public class SOStringMethodDrawer : PropertyDrawer
 
     private void DrawDisabledPopup(Rect position)
     {
-        GUI.enabled = false;
-        EditorGUI.Popup(position, -1, new string[] { });
-        GUI.enabled = true;
+        using (new EditorGUI.DisabledScope(true))
+        {
+            EditorGUI.Popup(position, -1, new string[] { });
+        }
     }
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)

@@ -10,10 +10,16 @@ public class TextReplacer : MonoBehaviour
 {
     [SerializeField] private SOStringMethod textSource;
     [SerializeField] private Text text;
-    [SerializeField] private bool AlwaysUpdate;
+    [SerializeField] private bool alwaysUpdate;
 
     public UnityEvent evt;
-
+    [Serializable]
+    public class StringEvent : UnityEvent <string> {}
+    [Serializable]
+    public class String2Event : UnityEvent <string, int> {}
+    public StringEvent evt2;
+    public String2Event evt3;
+    
     // TODO: event based rather than always update
     // 2D, LWRP 2019.2
 
@@ -38,7 +44,7 @@ public class TextReplacer : MonoBehaviour
 
     private void Update()
     {
-        if (AlwaysUpdate)
+        if (alwaysUpdate)
         {
             text.text = textSourceFunc();
         }
